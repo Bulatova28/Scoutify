@@ -21,7 +21,9 @@ The application was developed using the following technologies and tools:
 This project follows a modular structure to ensure clarity, scalability, and separation of concerns:
 
 Scoutify/
+
 │
+
 ├── db/                        # SQL scripts for creating the database and tables
 │   └── scoutify_gitdb.sql     # Pre-filled database with test data
 │
