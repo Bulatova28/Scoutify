@@ -61,7 +61,8 @@ Follow these steps to set up and run the Scoutify web application locally.
 cd Scoutify
 ```
 2. Install Dependencies
-```pip install -r requirements.txt
+```
+pip install -r requirements.txt
 ```
 3. Configure the Environment
 Create a `.env` file in the `src/` directory based on the provided `example.env` file.
