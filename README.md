@@ -20,21 +20,36 @@ The application was developed using the following technologies and tools:
 ## Folder Structure
 This project follows a modular structure to ensure clarity, scalability, and separation of concerns:
 
-- `db/` – SQL script for database creation
-  - `scoutify_gitdb.sql` – Pre-filled test database
-- `models/` – (optional) Placeholder for future ORM models
-- `research/` – (optional) Research drafts, notes
-- `src/` – Main application code
-  - `static/` – CSS, JS, images
-  - `templates/` – HTML templates
-  - `.env` – Your actual environment config (not committed)
-  - `example.env` – Template env file
-  - `models.py`, `routes.py`, `scoutify_app.py` – Core Python files
-- `test/` – Placeholder for tests
-- `.gitignore` – Files to ignore in Git
-- `requirements.txt` – Dependencies
-- `LICENSE` – BSD-3-Clause license
-- `README.md` – This file
+- `db/` – SQL scripts for creating the database and tables
+  - `scoutify_gitdb.sql` – Pre-filled database with test data
+
+- `models/` – (Optional) Placeholder for future ORM model separation
+
+- `research/` – (Optional) Placeholder for research notes, experiments
+
+- `src/` – Source code of the application
+  - `static/` – Static files (CSS, JS, images)
+    - `css/`
+    - `img/`
+    - `js/`
+  - `templates/` – HTML templates rendered via Flask and Jinja2
+    - `index1.html`
+    - `index2.html`
+    - `...`
+  - `example.env` – Template for environment variables setup
+  - `models.py` – SQLAlchemy models
+  - `routes.py` – Application routes
+  - `scoutify_app.py` – Main application entry point
+
+- `test/` – Placeholder for test files (currently empty)
+
+- `.gitignore` – Specifies intentionally untracked files to ignore
+
+- `LICENSE` – BSD 3-Clause License
+
+- `README.md` – Project documentation and instructions
+
+- `requirements.txt` – List of required Python packages
 
 
 > **Note**: The actual `.env` file is not included in the repository. You should create your own `.env` file using `example.env` as a template.
