@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SCOUTIFY</title>
+	<meta name = "description" content = "Зручний вебсайт для пошуку скаутських заходів для себе та друзів! Приєднуйся до нас!">
+	<meta property = "og:title" content = "SCOUTIFY - знайди свій ідеальний захід!">
+	<style>
+		*{
+			scroll-behavior: smooth ;
+		}
+	</style>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+
+<body>
+	<header>
+		<div class="quote">
+			<h2>Знайди свій ідеальний захід!</h2>
+		</div>
+
+	<div class="title">
+		<div class="line"></div><h1>SCOUTIFY</h1><div class="line"></div>
+	</div>
+			<nav>
+				<div class="navigation">
+					<div class="nav">
+						<div class="nav-2">
+							<img src="{{ url_for('static', filename='img/question_w.png') }}" alt="Про нас">
+							<a href="#about" target="_blank">Про нас</a>
+						</div>
+						<div class="nav-1">
+							<img src="{{ url_for('static', filename='img/chat_w.png') }}" alt="Контакти">
+							<a href="#cont">Контакти</a>
+						</div>
+						<div class="nav-2">
+							<img src="{{ url_for('static', filename='img/location_w.png') }}" alt="Заходи">
+							<a href="#events">Заходи</a>
+						</div>
+						<div class="nav-1">
+							<img src="{{ url_for('static', filename='img/user_w.png') }}" alt="Профіль">
+							<a href="{{ url_for('routes.auth') }}" target="_blank">Профіль</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+	</header>
+	
+	<main>
+		<section>
+			<div class="description">
+				<div class='descr'>
+					<img src="{{ url_for('static', filename='img/liliya.jpg') }}" alt="Лілія">
+					<h3>Вебсайт для українських скаутів, створений для пошуку заходів
+					в Україні та Європі</h3>
+				</div>
+			</div>
+			<div id="about">
+        	<div class="reasons">
+        		<div class="reas">
+					<h3>Коротко про нас</h3>
+					<div class="reas-1">
+						<!-- <div class="r-img"><img src="img/left.png" alt=""></div> -->
+						<div class="law-right">
+							<p>* I swear on my honor  that I will do everything in my power to: fulfill my duty to God and the State, to help others anywhere and anytime, to follow the Scout Law.<br>
+							* Присягаю своєю честю, що робитиму все, що в моїх силах, щоб: виконати свій обов’язок перед Богом та Державою, скрізь і повсякчас допомагати іншим, дотримуватися Скаутського Закону.<br></p>
+						</div>
+						<p>
+						Скаутську обіцянку дає кожен скаут під час присвячення, так як вона відображає суть його діяльності. Обов’язком кожного члена організації є дотримання її та Скаутського Закону. 
+						<br>
+						Скаутинг — це добровільний, неполітичний виховний рух для дітей та молоді, мета якого полягає в тому, щоб через участь скаутів у місцевих, національних і міжнародних організаціях, виховувати відповідальних і гідних громадян своєї країни, сприяти розвитку молодих людей для повного розкриття їхнього фізичного, інтелектуального, суспільного й духовного потенціалу. 
+						</p>
+				<!-- <div class="r-img"><img src="img/right.png" alt=""></div> -->
+					</div>
+				</div>
+			</div>
+			</div>
+		</section>
+
+		<section class="main-form">
+			<div id="events">
+				<div class="search-form">
+	            	<h3>Оберіть тип заходу та країну</h3>
+	            	<form method="POST" action="#eventsSection">
+	            		<label for="event_type">Тип заходу</label><br>
+	            		<select name="event_type" id="event_type">
+	            			<option value="">Всі типи заходів</option>
+		            			{% for event_type in event_types %}
+		            				<option value="{{ event_type.id_event_type }}" {% if selected_country == countries.id_country %}selected{% endif %}>
+		                            	{{ event_type.event_type_name }}
+		                        	</option>
+		                    	{% endfor %}
+	            		</select><br><br>
+
+	            		<label for="country">Країна заходу</label><br>
+	            		<select name="country" id="country">
+	            			<option value="">Всі країни</option>
+			                    {% for country in countries %}
+			                        <option value="{{ country.id_country }}" {% if selected_event_type == event_types.id_event_type %}selected{% endif %}>
+			                            {{ country.country_name }}
+			                        </option>
+			                    {% endfor %}
+	            		</select><br><br>
+
+	            		<button type="submit">Пошук</button>
+	            	</form>
+	        	</div>
+    		</div>
+
+        	<section id="eventsSection" class="events-container">
+            	<div class="butlang-choice">
+                    	<h3>Знайдені заходи</h3>
+            	</div>
+            	<div class="lang-choise">
+			        {% if events %}
+				        {% for event in events %}
+				            <div class = 'card'>
+				            	{% if event.event_image %}
+				                    <img src="{{ url_for('static', filename=event.event_image) }}" alt=" Зображення заходу">
+				                {% else %}
+				                    <img src="{{ url_for('static', filename='img/liliya.jpg') }}" alt="Скаутська лілія">
+				                {% endif %}
+				                <div class = 'card-content'>
+				                    <h3>{{ event.title }}</h3>
+				                    <p>Дата проведення: {{ event.start_date.strftime('%d.%m.%Y') }}{% if event.end_date %} - {{ event.end_date.strftime('%d.%m.%Y') }}{% endif %}</p>
+				                    <p>Місце проведення: {{ event.location }}</p>
+				                    <p>Вартість: {{ event.price }} {{ event.currency }}</p>
+				                </div>
+				                <a href="{{ url_for('routes.about', id_event=event.id_event|int) }}">
+				                <button class="more-info">Більше...</button>
+				                </a>
+	            			</div>
+				        {% endfor %}
+			        {% else %}
+			            <p>Немає заходів за обраними параметрами.</p>
+			        {% endif %}
+            	</div>
+        	</section>
+		</section>
+
+        <section>
+			<div class="advice">
+				<div class="advice-1">
+					<div id="adv">
+						<h3>Що цікавого?</h3>
+						<div class="adv">
+							<div class="adv-img"><img src="{{ url_for('static', filename='img/left.png') }}" alt=""></div>
+						<div class="adv-1">
+							<img src="{{ url_for('static', filename='img/about_us_1.png') }}" alt="">
+							<a href="https://ukrscout.org/scouting-history" target="_blank"><span>Історія скаутингу</span></a>
+						</div>
+						<div class="adv-1">
+							<img src="{{ url_for('static', filename='img/about_us_3.png') }}" alt="">
+							<a href="https://www.jamboree2027.org/" target="_blank"><span>Всесвітнє Джемборі 2027</span></a>
+						</div>
+						<div class="adv-2">
+							<img src="{{ url_for('static', filename='img/about_us_2.png') }}" alt="">
+							<a href="https://www.instagram.com/griffins.lviv?igsh=aGV2em4xZjZ1M3E1" target="_blank"><span>Приєднуйся до скаутів <br>Львова!</span></a>
+						</div>
+							<div class="adv-img"><img src="{{ url_for('static', filename='img/right.png') }}" alt=""></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+	 	<div id="cont">
+		 	<div class="contacts">
+		 		<h3>Наші контакти</h3>
+		 	</div>
+		 	<div class = "numbers">
+		 		<div class="num-1">
+		 			<img src="{{ url_for('static', filename='img/mail.png') }}" alt="Email">
+		 			<p>secretariat@ukrscout.org</p>
+		 		</div>
+		 	</div>
+	 	</div>
+
+	 	<div class = "social-media">
+	 		<div class="circle-3">
+				<img src="{{ url_for('static', filename='img/telegram_w.png') }}" alt="Telegram">
+	 			<a href="https://t.me/ukrscout" target="_blank">Telegram</a>
+	 		</div>
+			<div class="circle-1">
+				<img src="{{ url_for('static', filename='img/instagram.png') }}" alt="Instagram">
+	 			<a href="https://www.instagram.com/ukrscout?igsh=MWU4cXN0cjBpeXh2ZQ==" target="_blank">Instagram</a>
+	 		</div>
+	 		<div class="circle-2">
+	 			<img src="{{ url_for('static', filename='img/tik-tok.png') }}" alt="TikTok">
+	 			<a href="https://www.tiktok.com/@totem.ukrscout?_t=8sNOXtHnbtt&_r=1" target="_blank">Tik Tok</a>
+	 		</div>
+	 		<div class="circle-3">
+	 			<img src="{{ url_for('static', filename='img/facebook_w.png') }}" alt="Facebook">
+	 			<a href="https://www.facebook.com/share/12BjJvKGXFb/?mibextid=wwXIfr" target="_blank">Facebook</a>
+	 		</div>
+	 	</div>
+	</footer>
+</body>

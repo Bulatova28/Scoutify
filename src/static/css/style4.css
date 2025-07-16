@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gabriela', serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url("/static/img/bg_sc1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+    background-attachment: fixed; /* Фон не рухається */
+    overflow: auto;
+}
+
+h3 {
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.event-details {
+    width: calc(100% - 2cm); /* Відступи по 2 см з кожного боку */
+    max-width: 800px; /* Максимальна ширина для великих екранів */
+    background-color: #fff; /* Напівпрозорий білий фон */
+    border: 4px solid #35043d;
+    padding: 10px 25px;
+    padding-bottom: 25px;
+    border-radius: 15px;
+    margin: 20px auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.event-image img{
+    max-width: 280px;
+    width: 100%;
+    height: 215px;
+    border: 1.5px solid #430c4d;
+    border-radius: 15px;
+}
+
+.event-info-container {
+    display: flex;
+    justify-content: space-between;
+/*    gap: 20px;  */
+    width: 100%;  
+    flex-wrap: wrap;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.event-details h3 {
+    margin-bottom: 10px;
+    color: #35043d;
+}
+
+.event-info-title {
+/*    border: 2px solid red;*/
+}
+
+.event-info {
+/*    border: 2px solid green;*/
+}
+
+.event-image{
+    padding: 10px 0px 0px 0px;
+/*    border: 2px solid blue;*/
+}
+
+.info-box{
+/*    border: 3px solid orange;*/
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.event-info-title, .event-info {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.event-info-title, .event-info li {
+    margin-bottom: 10px;
+    color: #35043d;
+}
+
+.event-description p {
+    font-size: 18px;
+    color: #35043d;
+    margin-bottom: 10px;
+}
+
+.apply-btn-container, .back-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.apply-btn, .back-btn {
+    padding: 12px 20px;
+    margin: 0px 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #35043d;
+    text-align: center;
+    background-color: #fff;
+    display: block;
+    border: 1.5px solid #35043d;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 300px;
+}
+
+.apply-btn:hover, .back-btn:hover {
+    background-color: #430c4d;
+    color: #fff;
+}
+
+
+/* Адаптація під мобільні екрани */
+@media (max-width: 420px) {
+    .search-form, .events-container {
+        width: 95%; /* Зменшуємо ширину контейнера на маленьких екранах */
+    }
+}
+
+
+@media (max-width: 400px) {
+	.search-form {
+		width: 330px;
+	}
+}
+
+@media (max-width: 380px) {
+	.search-form {
+		width: 310px;
+	}
+}
+
+@media (max-width: 365px) {
+	.search-form {
+		width: 290px;
+	}
+}
+
+@media (max-width: 345px) {
+	.search-form {
+		width: 245px;
+	}
+}

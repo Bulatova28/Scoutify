@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style5.css') }}">
+</head>
+<body>
+	<main>
+        <div class="event-details">
+            <div class="event-info-container">
+
+                <div class="event-info-title">
+	                    <h3>Мій профіль</h3>
+                    
+                    <div class="info-box">
+                        <ul class="event-info">
+                        	<div class="prof-img">
+	                        	<div class="event-image">
+			                        <img src="{{ url_for('static', filename='img/liliya.jpg') }}" alt="Фото заходу">
+			                    </div>
+                            <li><strong>Ім'я та прізвище:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+                            </div>
+                            <div class="prof-img">
+	                        	<div class="event-image">
+			                        <img src="{{ url_for('static', filename='img/liliya.jpg') }}" alt="Фото заходу">
+			                    </div>
+                            <li><strong>Електронна пошта:</strong> {{ user.email }}</li>
+                            </div>
+
+                            <div class="prof-img">
+	                        	<div class="event-image">
+			                        <img src="{{ url_for('static', filename='img/liliya.jpg') }}" alt="Фото заходу">
+			                    </div>
+                            <li><strong>Номер телефону:</strong> +38 0{{ user.phone }}</li>
+                            </div>
+
+                            <div class="prof-img">
+	                        	<div class="event-image">
+			                        <img src="{{ url_for('static', filename='img/liliya.jpg') }}" alt="Фото заходу">
+			                    </div>
+                            <li><strong>Формування:</strong> {{ user.formation_org.form_name if user.formation_org else 'Не зазначено' }}</li>
+                            </div>
+
+                            <div class="prof-img">
+	                        	<div class="event-image">
+			                        <img src="{{ url_for('static', filename='img/liliya.jpg') }}" alt="Фото заходу">
+			                    </div>
+                            <li><strong>Роль:</strong> 
+                            	{% if user.roles %}
+						        	{{ user.roles[0].role_name }}
+						    	{% else %}
+						        	Не вказано
+						    	{% endif %}
+							</li>
+							</div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <div class="apply-btn-container">
+                    <a href="{{ url_for('routes.logout') }}">
+                        <button class="apply-btn">Вийти з профілю</button>
+                    </a>
+                </div>
+
+                <div class="back-btn-container">
+                    <a href="{{ url_for('routes.index') }}">
+                        <button class="back-btn">На головну сторінку</button>
+                    </a>
+                </div>
+
+                <div class="back-btn-container">
+				    <form action="{{ url_for('routes.confirm_delete') }}" method="GET">
+    					<button class="apply-btn" type="submit">Видалити профіль</button>
+					</form>
+				</div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

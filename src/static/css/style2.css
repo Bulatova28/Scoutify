@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Gabriela', serif;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+main {
+	align-items: center;
+	position: relative;
+	height: 100vh;
+	background-image: url("/static/img/bg_sc1.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center right;
+	background-attachment: fixed; /* Фон не рухається */
+    overflow: auto;
+}
+
+.form {
+	border-radius: 30px;
+	width: 440px;
+	position: relative; 
+	border: 4px solid #35043d;
+	background-color: #fff;
+	padding: 15px;
+	font-size: 20px;
+	color: #35043d;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.form h3 {
+	margin-bottom: 7px;
+	font-size: 24px;
+	text-align: center;
+	color: #35043d;
+}
+
+.input {
+	margin-bottom: 8px;
+	border: 1.5px solid #430c4d;
+    border-radius: 10px;
+	padding-left: 5px;
+	height: 36px;
+	font-size: 16px;
+	width: 98%;
+}
+
+.button {
+	background-color: #fff;
+	border: 1.5px solid #430c4d;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+	width: 105px;
+	padding: 3px 0;
+	color: #430c4d;
+	font-size: 20px;
+	cursor: pointer;
+	text-align: center;
+	transition: background-color 0.3s;
+}
+
+.button-box input:hover {
+	background-color: #430c4d;
+	color: #fff;
+}
+
+.button-box {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.buttons-box {
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+}
+
+#actionButtons {
+	width: 95%;
+	display: flex;
+	justify-content: space-evenly; 
+	margin-top: 5px;
+}
+
+#roleButtons {
+	padding: 0px;
+	padding-left: 8px;
+	width: 95%;
+	display: flex;
+	justify-content: space-between; 
+}
+
+#roleHeader{
+	margin-bottom: 11px;
+}
+
+#actionButtons button,
+#roleButtons button {
+	width: 45%;  
+	padding: 10px 0;
+	font-size: 20px;
+	cursor: pointer;
+	background-color: #fff;
+	border: 1.5px solid #430c4d;
+	color: #35043d;
+	border-radius: 10px;
+	transition: background-color 0.3s;
+}
+
+#roleButtons button{
+	margin: 0px 5px;
+	width: 46%;
+}
+
+
+#actionButtons button:hover,
+#roleButtons button:hover {
+	background-color: #430c4d;
+	color: #fff;
+}
+
+@media (max-width: 420px) {
+	.form {
+		width: 330px;
+	}
+
+	.form h3 {
+		font-size: 26px;
+	}
+}
+
+@media (max-width: 400px) {
+	.form {
+		width: 310px;
+	}
+}
+
+@media (max-width: 380px) {
+	.form {
+		width: 290px;
+	}
+}
+
+@media (max-width: 365px) {
+	.form {
+		width: 270px;
+	}
+}
+
+@media (max-width: 345px) {
+	.form {
+		width: 245px;
+	}
+}

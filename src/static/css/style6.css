@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gabriela', serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url("/static/img/bg_sc1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+    background-attachment: fixed; 
+    overflow: auto;
+}
+
+h3 {
+    color: #430c4d;
+    text-align: center;
+    font-size: 26px;
+    font-weight: normal;
+    margin: 15px;
+}
+
+.event-details {
+    width: calc(100% - 10cm); 
+/*    max-width: 800px; */
+    background-color: #fff; 
+    border: 4px solid #35043d;
+    padding: 0px 10px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    margin: 20px auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.event-info-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;  
+    flex-wrap: wrap;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.apply-btn, .back-btn {
+    padding: 12px 20px;
+    margin: 0px 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #35043d;
+    text-align: center;
+    background-color: #fff;
+    display: block;
+    border: 1.5px solid #430c4d;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 210px;
+}
+
+.apply-btn:hover, .back-btn:hover {
+    background-color: #430c4d;
+    color: #fff;
+}

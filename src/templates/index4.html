@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style4.css') }}">
+</head>
+<body>
+    <main>
+        <div class="event-details">
+            <div class="event-info-container">
+
+                <div class="event-info-title">
+                    <h3>{{ event.title }}</h3>
+
+                    <div class="info-box">
+                
+                        <ul class="event-info">
+                            <li><strong>Дата:</strong> {{ event.start_date.strftime('%d.%m.%Y') }}{% if event.end_date %} - {{ event.end_date.strftime('%d.%m.%Y') }}{% endif %}</li>
+                            <li><strong>Локація:</strong> {{ event.location }}</li>
+                            <li><strong>Країна:</strong> {{ event.country.country_name }}</li>
+                            <li><strong>Вартість:</strong> {{ event.price }} {{ event.currency }}</li>
+                            <li><strong>Тип заходу:</strong> {{ event.event_type.event_type_name }}</li>
+                            <li><strong>Вікова категорія:</strong> {{ event.age_category }}</li>
+                            <li><strong>Транспорт:</strong> {{ event.transportation or 'Не вказано' }}</li>
+                            <li><strong>Організатор:</strong> {{ (event.user.first_name + ' ' + event.user.last_name) if event.user.first_name and event.user.last_name else 'Не вказано' }}</li>
+                        </ul>
+
+                        <div class="event-image">
+                            <img src="{{ url_for('static', filename=event.event_image) }}" alt="Фото заходу">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-description">
+                <p>{{ event.description }}</p>
+            </div>
+
+            <div class="btn-container">
+                <div class="apply-btn-container">
+                    <a href="{{ event.application }}">
+                        <button class="apply-btn">Подати заявку</button>
+                    </a>
+                </div>
+
+                <div class="back-btn-container">
+                    <a href="{{ url_for('routes.index') }}">
+                        <button class="back-btn">Назад до списку заходів</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

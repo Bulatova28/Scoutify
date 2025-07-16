@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style6.css') }}">
+</head>
+<body>
+	<main>
+		<div class="form">
+			<div class="event-details">
+	            <div class="event-info-container">
+	                <h3>Дійсно видалити профіль?</h3>
+
+	                <form action="{{ url_for('routes.delete_user') }}" method="POST">
+	                    <div class="btn-container">
+	                        <button class="apply-btn" type="submit">Так, видалити</button>
+	                        <button class="apply-btn" type="button" onclick="window.location.href = '/routes.profile' ">Ні, повернутися</button>
+	                    </div>
+	                </form>
+	            </div>
+        	</div>
+        </div>
+</body>
+</html>

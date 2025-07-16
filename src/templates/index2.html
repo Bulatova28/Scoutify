@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+	<main>
+		<div class="form">
+			<form id="mainForm" onsubmit="return false;">
+				<h3>Оберіть дію</h3>
+				<div class="buttons-box">
+					<div id="actionButtons">
+						<button type="button" onclick="showAccountType('register')">Реєстрація</button>
+						<button type="button" onclick="showAccountType('login')">Вхід</button>
+					</div>
+				</div>
+				<h3 id="roleHeader" style="display: none;">Оберіть роль</h3>
+				<div class="buttons-box">
+					<div id="roleButtons" style="display: none;">
+						<button type="button" onclick="showForm('scout')">Скаут</button>
+						<button type="button" onclick="showForm('organizer')">Організатор</button>
+					</div>
+				</div>
+
+				<div id="formFields" style="display: none;">
+					<!-- Поля для реєстрації/входу з вибором ролі -->
+				</div>
+			</form>
+		</div>
+	</main>
+
+	<script src="{{ url_for('static', filename='js/script2.js') }}"></script>
+
+	<script>
+		const indexUrl1 = "{{ url_for('routes.index') }}";
+		
+		function redirectToIndex() {
+			window.location.href = indexUrl1; 
+		}
+	</script>
+
+</body>
+</html>
