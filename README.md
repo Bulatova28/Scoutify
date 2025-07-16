@@ -20,35 +20,36 @@ The application was developed using the following technologies and tools:
 ## Folder Structure
 This project follows a modular structure to ensure clarity, scalability, and separation of concerns:
 
-Scoutify/
-│
-├── db/                        # SQL scripts for creating the database and tables
-│   └── scoutify_gitdb.sql     # Pre-filled database with test data
-│
-├── models/                    # (Optional) Placeholder for future ORM model separation
-│
-├── research/                  # (Optional) Placeholder for research notes, experiments
-│
-├── src/                       # Source code of the application
-│   ├── static/                # Static files (CSS, JS, images)
-│   │   ├── css/
-│   │   ├── img/
-│   │   └── js/
-│   ├── templates/             # HTML templates rendered via Flask and Jinja2
-│   │   ├── index1.html
-│   │   ├── index2.html
-│   │   └── ...
-│   ├── example.env            # Template for environment variables setup
-│   ├── models.py              # SQLAlchemy models
-│   ├── routes.py              # Application routes 
-│   └── scoutify_app.py        # Main application entry point
-│
-├── test/                      # Placeholder for test files (currently empty)
-│
-├── .gitignore                 # Specifies intentionally untracked files to ignore
-├── LICENSE                    # BSD 3-Clause License
-├── README.md                  # Project documentation and instructions
-└── requirements.txt           # List of required Python packages
+- `db/` – SQL scripts for creating the database and tables
+  - `scoutify_gitdb.sql` – Pre-filled database with test data
+
+- `models/` – (Optional) Placeholder for future ORM model separation
+
+- `research/` – (Optional) Placeholder for research notes, experiments
+
+- `src/` – Source code of the application
+  - `static/` – Static files (CSS, JS, images)
+    - `css/`
+    - `img/`
+    - `js/`
+  - `templates/` – HTML templates rendered via Flask and Jinja2
+    - `index1.html`
+    - `index2.html`
+    - `...`
+  - `example.env` – Template for environment variables setup
+  - `models.py` – SQLAlchemy models
+  - `routes.py` – Application routes
+  - `scoutify_app.py` – Main application entry point
+
+- `test/` – Placeholder for test files (currently empty)
+
+- `.gitignore` – Specifies intentionally untracked files to ignore
+
+- `LICENSE` – BSD 3-Clause License
+
+- `README.md` – Project documentation and instructions
+
+- `requirements.txt` – List of required Python packages
 
 
 > **Note**: The actual `.env` file is not included in the repository. You should create your own `.env` file using `example.env` as a template.
@@ -57,11 +58,13 @@ Scoutify/
 Follow these steps to set up and run the Scoutify web application locally.
 
 1. Clone the Repository
-```git clone https://github.com/Bulatova28/Scoutify.git
+```
+git clone https://github.com/Bulatova28/Scoutify.git
 cd Scoutify
 ```
 2. Install Dependencies
-```pip install -r requirements.txt
+```
+pip install -r requirements.txt
 ```
 3. Configure the Environment
 Create a `.env` file in the `src/` directory based on the provided `example.env` file.
@@ -77,12 +80,14 @@ This can be done via MySQL Workbench (priority), phpMyAdmin, or command-line.
 
 6. Run the Application
 Navigate to the `src/` directory and start the app:
-```python scoutify_app.py
+```
+python scoutify_app.py
 ```
 
 The application will be available at:
 
-```http://localhost:5000 #for example
+```
+http://localhost:5000 #for example
 ```
 
 ## Environment Variables
