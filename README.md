@@ -57,7 +57,8 @@ Scoutify/
 Follow these steps to set up and run the Scoutify web application locally.
 
 1. Clone the Repository
-```git clone https://github.com/Bulatova28/Scoutify.git
+```
+git clone https://github.com/Bulatova28/Scoutify.git
 cd Scoutify
 ```
 2. Install Dependencies
@@ -78,12 +79,14 @@ This can be done via MySQL Workbench (priority), phpMyAdmin, or command-line.
 
 6. Run the Application
 Navigate to the `src/` directory and start the app:
-```python scoutify_app.py
+```
+python scoutify_app.py
 ```
 
 The application will be available at:
 
-```http://localhost:5000 #for example
+```
+http://localhost:5000 #for example
 ```
 
 ## Environment Variables
