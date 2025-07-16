@@ -25,31 +25,57 @@ Scoutify/
 │
 
 ├── db/                        # SQL scripts for creating the database and tables
+
 │   └── scoutify_gitdb.sql     # Pre-filled database with test data
+
 │
+
 ├── models/                    # (Optional) Placeholder for future ORM model separation
+
 │
+
 ├── research/                  # (Optional) Placeholder for research notes, experiments
+
 │
+
 ├── src/                       # Source code of the application
+
 │   ├── static/                # Static files (CSS, JS, images)
+
 │   │   ├── css/
+
 │   │   ├── img/
+
 │   │   └── js/
+
 │   ├── templates/             # HTML templates rendered via Flask and Jinja2
+
 │   │   ├── index1.html
+
 │   │   ├── index2.html
+
 │   │   └── ...
+
 │   ├── example.env            # Template for environment variables setup
+
 │   ├── models.py              # SQLAlchemy models
+
 │   ├── routes.py              # Application routes 
+
 │   └── scoutify_app.py        # Main application entry point
+
 │
+
 ├── test/                      # Placeholder for test files (currently empty)
+
 │
+
 ├── .gitignore                 # Specifies intentionally untracked files to ignore
+
 ├── LICENSE                    # BSD 3-Clause License
+
 ├── README.md                  # Project documentation and instructions
+
 └── requirements.txt           # List of required Python packages
 
 
